@@ -10,21 +10,11 @@ import { Car } from './interfaces/car.interface';
 @Injectable()
 export class CarsService {
   private cars: Car[] = [
-    {
-      id: uuid(),
-      brand: 'Toyota',
-      model: 'Yaris',
-    },
-    {
-      id: uuid(),
-      brand: 'Tesla',
-      model: 'Model 3',
-    },
-    {
-      id: uuid(),
-      brand: 'Honda',
-      model: 'Accord',
-    },
+    // {
+    //   id: uuid(),
+    //   brand: 'Toyota',
+    //   model: 'Yaris',
+    // },
   ];
 
   public findAll() {
@@ -73,5 +63,9 @@ export class CarsService {
   delete(id: string) {
     const car = this.findOneById(id);
     this.cars = this.cars.filter((car) => car.id !== id);
+  }
+
+  fillCarsWithSeedData( cars:Car[] ) {
+    this.cars = cars;
   }
 }
